@@ -27,7 +27,7 @@ function MainPage() {
     return (
         <div>
                 <div style={{ display: 'flex'}}>
-                    <div>{events.length > 0 ? events.data.events[0].title : 'fuck you'}</div>
+                    <div>{events.length > 0 ? events.data.events[0].title : 'please work'}</div>
                 </div>
         </div>
     );
