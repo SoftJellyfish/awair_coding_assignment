@@ -5,6 +5,8 @@ function MainPage() {
 
     const [events, setEvents] = React.useState([]);
 
+    console.log('events: ', events);
+    console.log('events length: ', events.length);
 
     React.useEffect(async () => {
             const getEvents = async () => {
@@ -12,7 +14,6 @@ function MainPage() {
                 .then((response) => {
                     console.log('response:', response);
                     setEvents(response);
-                    console.log('Events: ', events);
                 })
                 .catch((error) => {
                     console.log('error: ', error);
@@ -22,13 +23,22 @@ function MainPage() {
                 getEvents();
             }
       }, [events]);
-      console.log('events out: ', events);
 
     return (
         <div>
-                <div style={{ display: 'flex'}}>
-                    <div>{events.length > 0 ? events.data.events[0].title : 'please work'}</div>
-                </div>
+            {
+                events.length != 0 ? events.data.events.map((index) => {
+                    return (
+                        <div style={{ display: 'flex'}}>
+                            <div>{index.title}</div>
+                            <div>{index.start}</div>
+                            <div>{index.end}</div>
+                        </div>
+                    );
+                })
+                :
+                null
+            }
         </div>
     );
 }
