@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+Wanted to start by saying that I couldn't do it on the same day it was assigned as I ran into some last second
+chores I had to take care of.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I'm using React along with the following libraries
+- axios
+- styled-components (removed as I ended up usig a material-ui DataGrid table, however I have left the code so it can be
+                    read for "revision" purposes when you check the code)
+- material-ui (for the DataGrid)
 
-## Available Scripts
+Due to time constraints I couldn't give as much time as I would have liked to make the code and file structure clean. So I 
+apologize in advance for that.
 
-In the project directory, you can run:
+As for the code itself, I decided to start by making an axios request in order to get the data. I also set as condition
+to always check the length of my "events" state so useEffect gets triggered every time page loads. I was having an issue where
+it was not correctly loading the data upon refreshing the page and this fixed that issue. On the commented code you can see I was
+planning to code the whole grid by myself but I realized I was running out of time by doing so so I decided to go for a material-ui
+DataGrid which offers pagination as well as plenty of other nice options.
 
-### `npm start`
+material-ui grids could have provided me with more power and control over deleting/addings rows but I wasn't able to dig enough 
+to implement those options. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I was planning on adding a function that was going to redo a request to the server using the next_page_token token on clicking on 
+one of the arrows in the bottom of the page. I encountered some bugs like them not really working on click which are things
+I can fix by reading the docs of the DataGrid in detail.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3h was quite the challenge but I had fun with it. I hope my test will be taken into account.

@@ -36,10 +36,35 @@ function MainPage() {
 
     const [events, setEvents] = React.useState([]);
     const [curPage, setCurPage] = React.useState(1);
-
+    const [nextPageTok, setNextPageTok] = React.useState('');
 
     console.log('events: ', events);
     console.log('events length: ', events.length);
+
+    const getEvents = async () => {
+        await axios.get(`https://mobile-app-interview.awair.is/events`)
+        .then((response) => {
+            console.log('response:', response.data);
+            setEvents(response.data.events);
+            setNextPageTok(response.data.next_page_token);
+        })
+        .catch((error) => {
+            console.log('error: ', error);
+        });
+    }
+
+    const getNextPage = async () => {
+        await axios.get(`https://mobile-app-interview.awair.is/events?next_page_token={${nextPageTok}}`)
+        .then((response) => {
+            console.log('response:', response.data);
+            setEvents(response.data.events);
+            setNextPageTok(response.data.next_page_token);
+        })
+        .catch((error) => {
+            console.log('error: ', error);
+        });
+    }
+
 
     const columns = [
         { field: 'title', headerName: 'TITLE', width: 300 },
@@ -48,16 +73,6 @@ function MainPage() {
     ]
 
     React.useEffect(async () => {
-            const getEvents = async () => {
-                await axios.get(`https://mobile-app-interview.awair.is/events`)
-                .then((response) => {
-                    console.log('response:', response.data.events);
-                    setEvents(response.data.events);
-                })
-                .catch((error) => {
-                    console.log('error: ', error);
-                });
-            }
             if (events.length === 0) {
                 getEvents();
             }
@@ -72,6 +87,7 @@ function MainPage() {
                     getRowId={(events) => events.title}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
+                    onPageChange={() => getNextPage()}
                     checkboxSelection
                 />
                 {/* <LabelContainer>
